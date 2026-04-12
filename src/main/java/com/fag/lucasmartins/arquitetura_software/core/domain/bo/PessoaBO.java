@@ -12,28 +12,29 @@ public class PessoaBO {
     private String email;
     private String telefone;
 
-    public void validaCpfPessoa() {
+    public void validaCpf() {
         if(this.cpf.length() != 11) {
             throw new DomainException("O CPF tem menos de 11 caracteres.");
         }
     }
 
-    public void validaEmailPessoa() {
+    public void validaEmail() {
         if (!this.email.contains("@")) {
             throw new DomainException("O e-mail não tem um @");
         }
     }
 
-    public void validaTelefonePessoa() {
+    public void validaTelefone() {
         if ((this.telefone.contains("-")) || (this.telefone.contains("("))
         || (this.telefone.contains(")")) || (this.telefone.length() != 11)) {
             throw new DomainException("Telefone inválido.");
         }
     }
 
-    LocalDate hoje = LocalDate.now();
-    int idade = Period.between(this.dataNascimento, hoje).getYears();
-    public void validaDataNascimentoPessoa() {
+    public void validaDataNascimento() {
+        LocalDate hoje = LocalDate.now();
+        int idade = Period.between(this.dataNascimento, hoje).getYears();
+        
         if (idade < 18){
             throw new DomainException("A pessoa deve ter no mínimo 18 anos.");
         }
