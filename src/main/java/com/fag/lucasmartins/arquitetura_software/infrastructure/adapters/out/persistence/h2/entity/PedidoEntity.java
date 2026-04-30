@@ -12,6 +12,7 @@ import java.util.UUID;
 public class PedidoEntity {
 
     @Id
+    @Type(type = "uuid-char")
     private UUID id;
 
     @ManyToOne

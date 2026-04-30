@@ -28,7 +28,7 @@ public class PedidoSqsAdapter {
 
         } catch (Exception e) {
             log.error("Erro ao processar o evento de pedido para o cliente {}", dto.getCustomerId(), e);
-        
+            throw e;
         }
     }
 }
